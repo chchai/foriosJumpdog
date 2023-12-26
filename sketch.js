@@ -159,6 +159,40 @@ function draw()
     fill(100, 100, 130);
     text('Space', 190, 730);
     
+    for(i = 1; i < touches.length; i++)
+    {
+        if((touches[i].x < 100 && touches[i].x > 50) && (touches[i].y < 750 && touches[i].y > 700) && (flagpole.isReached == false && lives > 0))
+        {
+            isLeft = true;
+            walkSound.play();
+        }
+    
+        if((touches[i].x < 380 && touches[i].x > 330) && (touches[i].y < 750 && touches[i].y > 700) && (flagpole.isReached == false && lives > 0))
+        {
+            isRight = true;
+            walkSound.play();
+        }
+        
+        if((touches[i].x < 260 && touches[i].x > 170) && (touches[i].y < 750 && touches[i].y > 700) && (gameChar_y == floorPos_y || isTouched == true))
+        {
+            gameChar_y -= 150;
+            jumpSound.play();
+        }
+    }
+
+    // for(i = 1; i < touches.length; i++)
+    // {
+    //     if((touches[i].x < 100 && touches[i].x > 50) && (touches[i].y < 750 && touches[i].y > 700))
+    //     {
+    //         isLeft = false;
+    //     }
+    
+    //     if((touches[i].x < 380 && touches[i].x > 330) && (touches[i].y < 750 && touches[i].y > 700))
+    //     {
+    //         isRight = false;
+    //     }
+    // }
+    
     //check if the player is dead
     checkPlayerDie();
     
@@ -306,45 +340,45 @@ function keyReleased()
 }
 
 //detect the screen have been touch for direction
-function touchStarted()
-{
-    for(i = 1; i < touches.length; i++)
-    {
-        if((touches[i].x < 100 && touches[i].x > 50) && (touches[i].y < 750 && touches[i].y > 700) && (flagpole.isReached == false && lives > 0))
-        {
-            isLeft = true;
-            walkSound.play();
-        }
+// function touchStarted()
+// {
+//     for(i = 1; i < touches.length; i++)
+//     {
+//         if((touches[i].x < 100 && touches[i].x > 50) && (touches[i].y < 750 && touches[i].y > 700) && (flagpole.isReached == false && lives > 0))
+//         {
+//             isLeft = true;
+//             walkSound.play();
+//         }
     
-        if((touches[i].x < 380 && touches[i].x > 330) && (touches[i].y < 750 && touches[i].y > 700) && (flagpole.isReached == false && lives > 0))
-        {
-            isRight = true;
-            walkSound.play();
-        }
+//         if((touches[i].x < 380 && touches[i].x > 330) && (touches[i].y < 750 && touches[i].y > 700) && (flagpole.isReached == false && lives > 0))
+//         {
+//             isRight = true;
+//             walkSound.play();
+//         }
         
-        if((touches[i].x < 260 && touches[i].x > 170) && (touches[i].y < 750 && touches[i].y > 700) && (gameChar_y == floorPos_y || isTouched == true))
-        {
-            gameChar_y -= 150;
-            jumpSound.play();
-        }
-    }
-}
+//         if((touches[i].x < 260 && touches[i].x > 170) && (touches[i].y < 750 && touches[i].y > 700) && (gameChar_y == floorPos_y || isTouched == true))
+//         {
+//             gameChar_y -= 150;
+//             jumpSound.play();
+//         }
+//     }
+// }
 
-function touchEnded()
-{
-    for(i = 1; i < touches.length; i++)
-    {
-        if((touches[i].x < 100 && touches[i].x > 50) && (touches[i].y < 750 && touches[i].y > 700))
-        {
-            isLeft = false;
-        }
+// function touchEnded()
+// {
+//     for(i = 1; i < touches.length; i++)
+//     {
+//         if((touches[i].x < 100 && touches[i].x > 50) && (touches[i].y < 750 && touches[i].y > 700))
+//         {
+//             isLeft = false;
+//         }
     
-        if((touches[i].x < 380 && touches[i].x > 330) && (touches[i].y < 750 && touches[i].y > 700))
-        {
-            isRight = false;
-        }
-    }
-}
+//         if((touches[i].x < 380 && touches[i].x > 330) && (touches[i].y < 750 && touches[i].y > 700))
+//         {
+//             isRight = false;
+//         }
+//     }
+// }
 
 // ------------------------------
 // Game character render function
