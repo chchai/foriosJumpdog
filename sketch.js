@@ -313,11 +313,13 @@ function touchStarted()
         isLeft = true;
         walkSound.play();
     }
+
     if((touches.x < 380 && touches.x > 330) && (touches.y < 750 && touches.y > 700) && (flagpole.isReached == false && lives > 0))
     {
         isRight = true;
         walkSound.play();
     }
+    
     if((touches.x < 260 && touches.x > 170) && (touches.y < 750 && touches.y > 700) && (gameChar_y == floorPos_y || isTouched == true))
     {
         gameChar_y -= 150;
@@ -327,15 +329,15 @@ function touchStarted()
 
 function touchEnded()
 {
-    if((touches.x < 100 && touches.x > 50) && (touches.y < 750 && touches.y > 700))
-    {
+    // if((touches.x < 100 && touches.x > 50) && (touches.y < 750 && touches.y > 700))
+    // {
         isLeft = false;
-    }
+    // }
     
-    if((touches.x < 380 && touches.x > 330) && (touches.y < 750 && touches.y > 700))
-    {
+    // if((touches.x < 380 && touches.x > 330) && (touches.y < 750 && touches.y > 700))
+    // {
         isRight = false;
-    }
+    
 }
 
 // ------------------------------
