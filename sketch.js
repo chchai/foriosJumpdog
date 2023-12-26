@@ -157,18 +157,27 @@ function draw()
     rect(170, 700, 90, 50);
     textSize(20);
     fill(100, 100, 130);
-    // text(touches.x, 190, 730)
+    text('Space', 190, 730);
 
+    //detect the screen have been touch for direction
     for(let i =0; i < touches.length; i++)
     {
-        fill(200, 200, 30);
-        rect(touches[i].x, 700, 90, 50);
-        textSize(20);
-        fill(100, 100, 130);
+        if((touches[i].x < 100 && touches[i].x > 50) && (touches[i].y < 750 && touches[i].y > 700) && (flagpole.isReached == false && lives > 0))
+        {
+            isLeft = true;
+            walkSound.play();
+        }
+        if((touches[i].x < 380 && touches[i].x > 330) && (touches[i].y < 750 && touches[i].y > 700) && (flagpole.isReached == false && lives > 0))
+        {
+            isRight = true;
+            walkSound.play();
+        }
+        if((touches[i].x < 260 && touches[i].x > 170) && (touches[i].y < 750 && touches[i].y > 700) && (gameChar_y == floorPos_y || isTouched == true))
+        {
+            gameChar_y -= 150;
+            jumpSound.play();
+        }
     }
-    // touchPos = touches.x_pos;
-    // text(touchPos, 190, 730);
-
     
     //check if the player is dead
     checkPlayerDie();
@@ -280,7 +289,7 @@ function draw()
 function keyPressed()
 {
     //left arrow - go left and play walk sound
-    if(keyCode == 37&& (flagpole.isReached == false && lives > 0))
+    if((keyCode == 37&& (flagpole.isReached == false && lives > 0)))
     {
         isLeft = true;
         walkSound.play();
