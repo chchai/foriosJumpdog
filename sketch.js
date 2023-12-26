@@ -329,8 +329,15 @@ function touchStarted()
 
 function touchEnded()
 {
-    isLeft = false;
-    isRight = false;
+    if((touches.x < 100 && touches.x > 50) && (touches.y < 750 && touches.y > 700))
+    {
+        isLeft = false;
+    }
+
+    if((touches.x < 380 && touches.x > 330) && (touches.y < 750 && touches.y > 700))
+    {
+        isRight = false;
+    }
 }
 
 // ------------------------------
