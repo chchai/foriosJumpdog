@@ -308,39 +308,33 @@ function keyReleased()
 //detect the screen have been touch for direction
 function touchStarted()
 {
-    for(let i =0; i < touches.length; i++)
+    if((touches.x < 100 && touches.x > 50) && (touches.y < 750 && touches.y > 700) && (flagpole.isReached == false && lives > 0))
     {
-        if((touches[i].x < 100 && touches[i].x > 50) && (touches[i].y < 750 && touches[i].y > 700) && (flagpole.isReached == false && lives > 0))
-        {
-            isLeft = true;
-            walkSound.play();
-        }
-        if((touches[i].x < 380 && touches[i].x > 330) && (touches[i].y < 750 && touches[i].y > 700) && (flagpole.isReached == false && lives > 0))
-        {
-            isRight = true;
-            walkSound.play();
-        }
-        if((touches[i].x < 260 && touches[i].x > 170) && (touches[i].y < 750 && touches[i].y > 700) && (gameChar_y == floorPos_y || isTouched == true))
-        {
-            gameChar_y -= 150;
-            jumpSound.play();
-        }
+        isLeft = true;
+        walkSound.play();
+    }
+    if((touches.x < 380 && touches.x > 330) && (touches.y < 750 && touches.y > 700) && (flagpole.isReached == false && lives > 0))
+    {
+        isRight = true;
+        walkSound.play();
+    }
+    if((touches.x < 260 && touches.x > 170) && (touches.y < 750 && touches.y > 700) && (gameChar_y == floorPos_y || isTouched == true))
+    {
+        gameChar_y -= 150;
+        jumpSound.play();
     }
 }
 
 function touchEnded()
 {
-    for(let i =0; i < touches.length; i++)
+    if((touches.x < 100 && touches.x > 50) && (touches.y < 750 && touches.y > 700))
     {
-        if((touches[i].x < 100 && touches[i].x > 50) && (touches[i].y < 750 && touches[i].y > 700))
-        {
-            isLeft = false;
-        }
-        
-        if((touches[i].x < 380 && touches[i].x > 330) && (touches[i].y < 750 && touches[i].y > 700))
-        {
-            isRight = false;
-        }
+        isLeft = false;
+    }
+    
+    if((touches.x < 380 && touches.x > 330) && (touches.y < 750 && touches.y > 700))
+    {
+        isRight = false;
     }
 }
 
