@@ -330,14 +330,17 @@ function touchStarted()
 
 function touchEnded()
 {
-    if((touches[i].x < 100 && touches[i].x > 50) && (touches[i].y < 750 && touches[i].y > 700))
+    for(let i =0; i < touches.length; i++)
     {
-        isLeft = false;
-    }
-    
-    if((touches[i].x < 380 && touches[i].x > 330) && (touches[i].y < 750 && touches[i].y > 700))
-    {
-        isRight = false;
+        if((touches[i].x < 100 && touches[i].x > 50) && (touches[i].y < 750 && touches[i].y > 700))
+        {
+            isLeft = false;
+        }
+        
+        if((touches[i].x < 380 && touches[i].x > 330) && (touches[i].y < 750 && touches[i].y > 700))
+        {
+            isRight = false;
+        }
     }
 }
 
